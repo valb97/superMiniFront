@@ -32,7 +32,7 @@ This is a React + Vite-based frontend application that simulates a modern online
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/supermarket-frontend
+git clone https://github.com/valb97/superMiniFront
 cd supermarket-frontend
 ```
 
@@ -54,7 +54,7 @@ The app will run at `http://localhost:5173`.
 
 ## 🔗 Backend Setup
 
-This app depends on a backend API called [`marketApi`](https://github.com/your-username/marketApi).
+This app depends on a backend API called [`marketApi`](https://github.com/valb97/marketApi).
 
 Make sure you:
 
