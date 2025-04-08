@@ -1,56 +1,163 @@
+/* Estilos mejorados para el componente AlertDialog */
+
 .alert-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.alert-overlay.visible {
+  opacity: 1;
+}
+
+.alert-dialog {
+  background-color: white;
+  padding: 28px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.alert-dialog.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.alert-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.alert-icon svg {
+  width: 36px;
+  height: 36px;
+  color: white;
+}
+
+.alert-icon.success {
+  background-color: #4CAF50;
+}
+
+.alert-icon.error {
+  background-color: #F44336;
+}
+
+.alert-icon.warning {
+  background-color: #FF9800;
+}
+
+.alert-icon.info {
+  background-color: #2196F3;
+}
+
+.alert-message {
+  font-size: 18px;
+  margin-bottom: 24px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.alert-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.alert-buttons button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  min-width: 120px;
+  transition: all 0.2s ease;
+}
+
+.alert-buttons button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.confirm-button {
+  background-color: var(--main-color, #4CAF50);
+  color: rgb(34, 34, 34);
+}
+
+.confirm-button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.cancel-button {
+  background-color: rgb(212, 42, 42);
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: rgb(168, 0, 0);
+  color: white;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Animación de carga para el botón */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-  
+}
+
+/* Soporte para dispositivos móviles */
+@media (max-width: 480px) {
   .alert-dialog {
-    background-color: white;
-    padding: 24px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
+    padding: 20px;
+    width: 95%;
   }
   
   .alert-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 16px;
+    flex-direction: column;
+    gap: 12px;
   }
   
-  button {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  .alert-buttons button {
+    width: 100%;
   }
-  
-  button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-
-  .confirm-button{
-    background-color: var(--main-color);
-    color: rgb(34, 34, 34);
-  }
-
-  .cancel-button{
-    background-color: rgb(212, 42, 42);
-    color: white;
-  }
-
-  .cancel-button:hover{
-    background-color: rgb(168, 0, 0);
-    color: white;
-  }
-  
+}

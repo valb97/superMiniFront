@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import './aboutItem.css';
-import { useCart } from '../../cartContext'; // Importamos el contexto del carrito
-import { useAlertDialog } from '../../alertDialogContext'; // Importamos el contexto de alerta
+import { useCart } from '../../cartContext';
+import { useAlertDialog } from '../../alertDialogContext';
 
 export default function AboutItem() {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [quantity, setQuantity] = useState(1); // Estado para manejar la cantidad
-    const { addItemToCart } = useCart(); // Obtenemos la función para agregar al carrito
-    const { showAlert } = useAlertDialog(); // Obtenemos la función para mostrar alertas
+    const [quantity, setQuantity] = useState(1);
+    const { addItemToCart } = useCart();
+    const { showAlert } = useAlertDialog();
 
     const fetchData = async () => {
         setLoading(true);
@@ -31,30 +31,25 @@ export default function AboutItem() {
         fetchData();
     }, [id]);
 
-    // Función para manejar el cambio de cantidad
     const handleQuantityChange = (e) => {
         const value = parseInt(e.target.value) || 1;
         setQuantity(value);
     }
 
-    // Función para agregar al carrito
     const handleAddToCart = () => {
-        // Verificar si hay suficiente stock
         if (product.stock <= 0) {
             showAlert({
                 message: "No hay stock disponible para este producto",
                 onConfirm: () => {},
-                onCancel: null // No necesitamos cancelar en este caso
+                onCancel: null
             });
             return;
         }
 
-        // Verificar si la cantidad solicitada excede el stock
         if (quantity > product.stock) {
             showAlert({
                 message: `Solo hay ${product.stock} unidades disponibles`,
                 onConfirm: () => {
-                    // Opcionalmente, ajustar la cantidad automáticamente al stock disponible
                     setQuantity(product.stock);
                 },
                 onCancel: () => {}
@@ -62,10 +57,8 @@ export default function AboutItem() {
             return;
         }
 
-        // Si todo está bien, agregar al carrito
         addItemToCart(product.id, quantity);
         
-        // Mostrar confirmación
         showAlert({
             message: `Se agregaron ${quantity} unidades de ${product.name} al carrito`,
             onConfirm: () => {},
@@ -84,7 +77,7 @@ export default function AboutItem() {
     return (
         <div className="about-item-container">
             <div className="about-item-header">
-                <h2>Detalles del Producto</h2>
+                <h2>{product.name}</h2>
             </div>
             <div className="about-item-details">
                 <img 
@@ -92,21 +85,23 @@ export default function AboutItem() {
                     alt={product.name} 
                     className="about-item-image"
                 />
-                <p><strong>Nombre:</strong> {product.name}</p>
                 <p className="about-item-price"><strong>Precio:</strong> ${product.price}</p>
                 <p><strong>Cantidad disponible:</strong> {product.stock}</p>
                 <p><strong>Descripción:</strong> {product.description}</p>
             </div>
             <div className="about-item-cart-actions">
-                <input 
-                    type="number"
-                    value={quantity}
-                    onChange={handleQuantityChange}
-                    min="1"
-                    max={product.stock}
-                    placeholder="Ingrese la cantidad deseada"
-                    className="about-item-container-input"
-                />
+                <div className="quantity-input-container">
+                    <label htmlFor="quantity-input">Cantidad:</label>
+                    <input 
+                        id="quantity-input"
+                        type="number"
+                        value={quantity}
+                        onChange={handleQuantityChange}
+                        min="1"
+                        max={product.stock}
+                        className="about-item-quantity-input"
+                    />
+                </div>
                 <button 
                     className="about-item-button"
                     onClick={handleAddToCart}
