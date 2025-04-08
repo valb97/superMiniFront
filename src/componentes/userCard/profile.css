@@ -1,0 +1,229 @@
+/* profile.css */
+.profile-dropdown {
+  position: absolute;
+  top: 60px; /* Ajusta según la posición de tu icono de usuario */
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-container {
+  width: 320px;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.2s;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
+.profile-container h2 {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+  position: relative;
+}
+
+.profile-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background-color: #5c6bc0;
+}
+
+.profile-data {
+  padding: 0.5rem;
+}
+
+.profile-data p {
+  margin-bottom: 0.8rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+}
+
+.profile-data p strong {
+  color: #5c6bc0;
+  margin-right: 0.5rem;
+  font-weight: 600;
+}
+
+.logout-button {
+  width: 100%;
+  padding: 0.7rem;
+  font-size: 1rem;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+.loading-container {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.loading-container p {
+  font-size: 1rem;
+  color: #5c6bc0;
+}
+
+.error-container {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.error-message {
+  color: #d32f2f;
+  background-color: #ffebee;
+  padding: 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  border-left: 4px solid #f44336;
+  font-size: 0.9rem;
+}
+
+.error-container button, 
+.no-data button {
+  padding: 0.7rem 1.2rem;
+  font-size: 0.9rem;
+  background-color: #5c6bc0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin-top: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.error-container button:hover,
+.no-data button:hover {
+  background-color: #3949ab;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(57, 73, 171, 0.3);
+}
+
+.no-data {
+  text-align: center;
+  padding: 0.8rem;
+}
+
+.no-data p {
+  margin-bottom: 1rem;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Opcional: Estilos para el contenedor del icono de usuario */
+.user-container {
+  position: relative;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.user-container:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Existing styles... */
+
+/* New renamed styles for the error container */
+.auth-status-dropdown {
+  position: absolute;
+  top: 60px; /* Ajusta según la posición de tu icono de usuario */
+  left: 20px; /* Asegura que esté alineado correctamente */
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.auth-error-box {
+  width: 320px;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.auth-error-message {
+  color: #d32f2f;
+  background-color: #ffebee;
+  padding: 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  border-left: 4px solid #f44336;
+  font-size: 0.9rem;
+}
+
+.auth-action-button {
+  padding: 0.7rem 1.2rem;
+  font-size: 0.9rem;
+  background-color: #5c6bc0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin-top: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.auth-action-button:hover {
+  background-color: #3949ab;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(57, 73, 171, 0.3);
+}
+
+/* Keep the fadeIn animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

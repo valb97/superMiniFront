@@ -1,0 +1,63 @@
+.admin-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+}
+
+.admin-card {
+    background-color: white;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.admin-card h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 1.8rem;
+    color: black;
+}
+
+.admin-card label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #333;
+    display: block;
+}
+
+.admin-card input {
+    width: 90%;
+    padding: 0.7rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s ease;
+}
+
+.admin-card input:focus {
+    border-color: #5ff76c;
+}
+
+.admin-card button {
+    padding: 0.75rem;
+    background-color: #5ff76c;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.admin-card button:hover {
+    background-color: #45db5c;
+}

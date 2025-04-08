@@ -1,0 +1,67 @@
+:root {
+    --main-color: #5ff76c;
+    --hover-color: #4be75c;
+    --text-color: #333;
+    --background: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+  }
+  
+
+.products-container {
+    margin: auto;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: center; /* Centra los ítems horizontalmente */
+    align-items: start;    /* O "center" si querés centrar verticalmente también */
+    margin-bottom: 1rem;
+}
+
+.home-info-container {
+    margin: 1rem auto;
+    padding: 2rem;
+    height: 30vh;
+    width: 80%;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffffff, #f3f3f3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-info-container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.home-info-container p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .products-container {
+        grid-template-columns: repeat(3, 1fr); /* En pantallas más pequeñas, 3 columnas */
+    }
+}
+
+@media (max-width: 768px) {
+    .products-container {
+        grid-template-columns: repeat(2, 1fr); /* En pantallas muy pequeñas, 2 columnas */
+    }
+}
+
+@media (max-width: 480px) {
+    .products-container {
+        grid-template-columns: 1fr; /* En pantallas extra pequeñas, 1 columna */
+    }
+}

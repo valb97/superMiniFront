@@ -1,0 +1,12 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+:root{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  --primary-color: #007bff; /* Azul */
+  --secondary-color: #28a745; /* Verde */
+  
+}
+
